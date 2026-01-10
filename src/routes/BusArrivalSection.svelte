@@ -15,19 +15,24 @@
 			The position that the bus parked in.
 		</li>
 		<li>
-			<b>arrival_time:</b>
+			<b>detected_date:</b>
+			The date at which the bus arrived, in yyyy-mm-dd format (example: 2026-06-10)
+		</li>
+		<li>
+			<b>detected_time:</b>
 			The time at which the bus was <i>detected</i> by myBCA's systems. This time may be different
 			from the time at which the bus actually
 			<i>arrived</i>. Specifically, if the bus was one of the first buses to arrive on a given day,
-			the arrival_time may be up to 5 minutes late and not represent the true arrival time of the
-			bus. In other cases, the arrival_time can be up to 15 seconds late.
+			the detected_time may be up to 5 minutes late and not represent the true arrival time of the
+			bus. In other cases, the detected_time can be up to 15 seconds late. The time is in format
+            h:mm:ss AM/PM (example: 4:15:03 PM)
 		</li>
 	</ul>
 	<div class="mt-5 space-y-2">
 		<h3 class="font-bold">Generate report</h3>
 		<p>Reports are provided as CSV files that can be opened in Excel or similar software.</p>
 		<form action="https://main-service-prod-oc1.mybca.link/api/bus/reports/generate" method="GET">
-			<div class="flex flex-col md:flex-row gap-3">
+			<div class="flex flex-col gap-3 md:flex-row">
 				<label for="bus-arrival-input-start" class="flex flex-col gap-1">
 					Start date
 					<input
@@ -52,7 +57,10 @@
 			</div>
 
 			<div class="mt-8">
-				<button type="submit" class="border border-accent-dark bg-accent hover:bg-accent-dark transition px-3 py-2 inline-flex gap-2 items-center">
+				<button
+					type="submit"
+					class="inline-flex items-center gap-2 border border-accent-dark bg-accent px-3 py-2 transition hover:bg-accent-dark"
+				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"
